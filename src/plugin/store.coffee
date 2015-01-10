@@ -384,21 +384,28 @@ class Annotator.Plugin.Store extends Annotator.Plugin
       opts = $.extend(opts, data: obj)
       return opts
 
-    data = obj && this._dataFor(obj)
+    if method != 'DELETE'
+        data = obj && this._dataFor(obj)
 
     # If emulateJSON is enabled, we send a form request (the correct
     # contentType will be set automatically by jQuery), and put the
     # JSON-encoded payload in the "json" key.
     if @options.emulateJSON
-      opts.data = {json: data}
-      if @options.emulateHTTP
+      if data
+        opts.data = {json: data}
+      if @options.emulateHTTP and data
         opts.data._method = method
       return opts
 
     opts = $.extend(opts, {
-      data: data
       contentType: "application/json; charset=utf-8"
-    })
+    });
+
+    if data
+      opts = $.extend(opts, {
+        data: data
+      });
+
     return opts
 
   # Builds the appropriate URL from the options for the action provided.
@@ -420,9 +427,9 @@ class Annotator.Plugin.Store extends Annotator.Plugin
     url += @options.urls[action]
     # If there's a '/:id' in the URL, either fill in the ID or remove the
     # slash:
-    url = url.replace(/\/:id/, if id? then '/' + id else '')
+    url = url.replace(/\/:id/, if id? then '/' + encodeURIComponent(id) else '')
     # If there's a bare ':id' in the URL, then substitute directly:
-    url = url.replace(/:id/, if id? then id else '')
+    url = url.replace(/:id/, if id? then encodeURIComponent(id) else '')
 
     url
 
