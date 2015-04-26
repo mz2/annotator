@@ -418,7 +418,7 @@ class Annotator extends Delegator
     # subset of nodes such as table rows and lists. This does mean that there
     # may be the odd abandoned whitespace node in a paragraph that is skipped
     # but better than breaking table layouts.
-    for node in normedRange.textNodes() when not white.test(node.nodeValue)
+    for node in normedRange.textNodes() when (not white.test(node.nodeValue) && not $(node).parent().hasClass(cssClass) && $(node).parent().closest('.' + cssClass).empty())
       $(node).wrapAll(hl).parent().show()[0]
 
   # Public: highlight a list of ranges
