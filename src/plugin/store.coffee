@@ -312,6 +312,12 @@ class Annotator.Plugin.Store extends Annotator.Plugin
   # Returns
   dumpAnnotations: ->
     (JSON.parse(this._dataFor(ann)) for ann in @annotations)
+    
+  # Get an annotation by its ID (stored in its span as data-annotation-id)
+  # A custom addition by Matias Piipari (matias.piipari@gmail.com)
+  annotationWithID: (annotationID) =>
+    result = annotation for annotation in @annotations when annotation.id is annotationID
+    result
 
   # Callback method for Store#loadAnnotationsFromSearch(). Processes the data
   # returned from the server (a JSON array of annotation Objects) and updates

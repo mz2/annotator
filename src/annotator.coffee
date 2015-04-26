@@ -617,11 +617,12 @@ class Annotator extends Delegator
     # If the viewer is already shown, hide it first
     @viewer.hide() if @viewer.isShown()
 
-    annotations = $(event.target)
-      .parents('.annotator-hl')
-      .addBack()
-      .map( -> return $(this).data("annotation"))
-      .toArray()
+    annotations = [ @plugins['Store'].annotationWithID(event.target.getAttribute('data-annotation-id')) ]
+    #annotations = $(event.target)
+    #  .parents('.annotator-hl')
+    #  .addBack()
+    #  .map( -> return $(this).data('annotation'))
+    #  .toArray()
 
     # Now show the viewer with the wanted annotations
     this.showViewer(annotations, Util.mousePosition(event, @wrapper[0]))
