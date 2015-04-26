@@ -616,8 +616,10 @@ class Annotator extends Delegator
 
     # If the viewer is already shown, hide it first
     @viewer.hide() if @viewer.isShown()
-
-    annotations = [ @plugins['Store'].annotationWithID(event.target.getAttribute('data-annotation-id')) ]
+    
+    annotation = @plugins['Store'].annotationWithID(event.target.getAttribute('data-annotation-id'))
+    annotations = if annotation then [ annotation ] else []
+    
     #annotations = $(event.target)
     #  .parents('.annotator-hl')
     #  .addBack()
