@@ -201,11 +201,11 @@
 .annotator-widget::after {
 	content: "";
 	display: block;
-	width: 18px;
+	width: 20px;
 	height: 10px;
-	background-position: 0 0;
 	position: absolute;
 	bottom: -10px;
+	background-image: url(../img/Arrow-Down-White.png);
 	left: 8px;
 }
 
@@ -518,7 +518,7 @@
 }
 
 .annotator-editor .annotator-widget::after {
-	background-position: 0 -30px;
+	width:20px;
 }
 
 .annotator-editor.annotator-invert-y .annotator-widget .annotator-controls {
@@ -526,7 +526,7 @@
 }
 
 .annotator-editor.annotator-invert-y .annotator-widget::after {
-	background-position: 0 -45px;
+	background-image: url(../img/Arrow-Up-White.png);
 	height: 11px;
 }
 
