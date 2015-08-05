@@ -205,7 +205,8 @@
 	height: 10px;
 	position: absolute;
 	bottom: -10px;
-	background-image: url(../img/Arrow-Down-White.png);
+	background-size: contain;
+	background-image: url(../img/Arrow-Down-White@2x.png);
 	left: 8px;
 }
 
@@ -315,15 +316,18 @@
 }
 
 .annotator-viewer .annotator-controls .annotator-edit {
-	background-image: url(../img/Pencil.png);
+	background-image: url(../img/Pencil@2x.png);
+	background-size: contain;
 }
 
 .annotator-viewer .annotator-controls .annotator-delete {
-	background-image: url(../img/Checkmark.png);
+	background-image: url(../img/Checkmark@2x.png);
+	background-size: contain;
 }
 
 .annotator-viewer .annotator-controls .annotator-link {
-	background-image: url(../img/Hyperlink.png);
+	background-image: url(../img/Hyperlink@2x.png);
+	background-size: contain;
 }
 
 /* Annotator Editor
@@ -485,7 +489,8 @@
 	width: 15px;
 	height: 15px;
 	margin-top: -7px;
-	background-image: url(../img/Checkmark-Circle-Black.png);
+	background-image: url(../img/Checkmark-Circle-Black@2x.png);
+	background-size: contain;
 }
 
 .annotator-editor a:hover,
@@ -498,7 +503,8 @@
 
 .annotator-editor a:hover::after,
 .annotator-editor a:focus::after {
-	background-image: url(../img/Checkmark-Circle-Black.png);
+	background-image: url(../img/Checkmark-Circle-Black@2x.png);
+	background-size: contain;
 }
 
 .annotator-editor a:active,
@@ -508,13 +514,15 @@
 }
 
 .annotator-editor a.annotator-save::after {
-	background-image: url(../img/Tickmark-Circle-Black.png);
+	background-image: url(../img/Tickmark-Circle-Black@2x.png);
+	background-size: contain;
 }
 
 .annotator-editor a.annotator-save:hover::after,
 .annotator-editor a.annotator-save:focus::after,
 .annotator-editor a.annotator-save.annotator-focus::after {
-	background-image: url(../img/Tickmark-Circle-Black.png);
+	background-image: url(../img/Tickmark-Circle-Black@2x.png);
+	background-size: contain;
 }
 
 .annotator-editor .annotator-widget::after {
@@ -526,7 +534,8 @@
 }
 
 .annotator-editor.annotator-invert-y .annotator-widget::after {
-	background-image: url(../img/Arrow-Up-White.png);
+	background-image: url(../img/Arrow-Up-White@2x.png);
+	background-size: contain;
 	height: 11px;
 }
 
