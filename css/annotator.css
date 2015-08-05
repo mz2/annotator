@@ -24,20 +24,6 @@
 /* Images
 -------------------------------------------------------------------- */
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
-	.annotator-adder {
-		background-image: url(../img/annotator-icon-sprite.png);
-		background-repeat: no-repeat;
-	}
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (max-resolution: 191dpi) { 
-	.annotator-adder {
-		background-image: url(../img/annotator-icon-sprite.png);
-		background-repeat: no-repeat;
-	}
-}
-
 .annotator-adder {
 	background-repeat: no-repeat;
 }
@@ -100,46 +86,58 @@
 /* Annotator Adder
 -------------------------------------------------------------------- */
 
-.annotator-adder {
-	margin-top: -48px;
-	margin-left: -24px;
-	width: 48px;
-	height: 48px;
-	background-image: url(../img/Note-Hover36w.png);
+@media (-webkit-max-device-pixel-ratio: 1.5), 
+(max-resolution: 192dpi) { 
+	.annotator-adder {
+	 margin-top: -48px;
+	 margin-left: -24px;
+	 width: 36px;
+	 height: 42px;
+	 background-image: url(../img/Note-Hover36w.png);
+	 background-size: 36px 42px;
+	}
+
+	.annotator-adder:hover {
+	 background-image: url(../img/Note-Normal36w.png);
+	 background-size: 36px 42px;
+	 width: 36px;
+	 height: 42px;
+	}
+
+	.annotator-adder:active {
+	 background-image: url(../img/Note-Highlight36w.png);
+	 background-size: 36px 42px;
+	 width: 36px;
+	 height: 42px;
+	}
 }
 
-.annotator-adder:hover {
-	background-image: url(../img/Note-Normal36w.png);
-	width: 48px;
-	height: 48px;
+@media (-webkit-min-device-pixel-ratio: 1.5), 
+(max-resolution: 192dpi) { 
+
+	.annotator-adder {
+	 margin-top: -48px;
+	 margin-left: -24px;
+	 width: 36px;
+	 height: 42px;
+	 background-image: url(../img/Note-Hover72w.png);
+	 background-size: 36px 42px;
+	}
+
+	.annotator-adder:hover {
+	 background-image: url(../img/Note-Normal72w.png);
+	 background-size: 36px 42px;
+	 width: 36px;
+	 height: 42px;
+	}
+
+	.annotator-adder:active {
+	 background-image: url(../img/Note-Highlight72w.png);
+	 background-size: 36px 42px;
+	 width: 36px;
+	 height: 42px;
+	}
 }
-
-.annotator-adder:active {
-	background-image: url(../img/Note-Highlight36w.png);
-	width: 48px;
-	height: 48px;
-}
-
-@media only screen and ( -webkit-min-device-pixel-ratio: 1.3 ),
-       only screen and (    min--moz-device-pixel-ratio: 1.3 ),
-       only screen and (      -o-min-device-pixel-ratio: 2.6/2 ), /* returns 1.3, see Dev.Opera */
-       only screen and (         min-device-pixel-ratio: 1.3 ),
-       only screen and ( min-resolution: 124.8dpi ),
-       only screen and ( min-resolution: 1.3dppx ) {
-
-       .annotator-adder {
-		   background: url(../img/Note-Normal72w.png) no-repeat / 96px 96px;
-       }
-
-	   .annotator-adder:hover {
-		   background: url(../img/Note-Hover72w.png) no-repeat / 96px 96px;
-       }
-
-	   .annotator-adder:active {
-		   background: url(../img/Note-Highlight72w.png) no-repeat / 96px 96px;
-       }
-}
-
 
 .annotator-adder button {
 	display: block;
