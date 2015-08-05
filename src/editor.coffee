@@ -301,7 +301,7 @@ class Annotator.Editor extends Annotator.Widget
   #
   # Returns nothing.
   setupDraggables: () ->
-    @element.find('.annotator-resize').remove()
+    #@element.find('.annotator-resize').remove()
 
     # Find the first/last item element depending on orientation
     if @element.hasClass(@classes.invert.y)
@@ -309,14 +309,14 @@ class Annotator.Editor extends Annotator.Widget
     else
       cornerItem = @element.find('.annotator-item:first')
 
-    if cornerItem
-      $('<span class="annotator-resize"></span>').appendTo(cornerItem)
+    #if cornerItem
+    #  $('<span class="annotator-resize"></span>').appendTo(cornerItem)
 
     mousedown = null
     classes   = @classes
     editor    = @element
     textarea  = null
-    resize    = editor.find('.annotator-resize')
+    #resize    = editor.find('.annotator-resize')
     controls  = editor.find('.annotator-controls')
     throttle  = false
 
@@ -331,10 +331,10 @@ class Annotator.Editor extends Annotator.Widget
         # Find the first text area if there is one.
         textarea = editor.find('textarea:first')
 
-        $(window).bind({
-          'mouseup.annotator-editor-resize':   onMouseup
-          'mousemove.annotator-editor-resize': onMousemove
-        })
+        #$(window).bind({
+        #  'mouseup.annotator-editor-resize':   onMouseup
+        #  'mousemove.annotator-editor-resize': onMousemove
+        #})
         event.preventDefault()
 
     onMouseup = ->
@@ -349,20 +349,20 @@ class Annotator.Editor extends Annotator.Widget
         }
 
         if mousedown.element == resize[0]
-          height = textarea.outerHeight()
-          width  = textarea.outerWidth()
-
-          directionX = if editor.hasClass(classes.invert.x) then -1 else  1
-          directionY = if editor.hasClass(classes.invert.y) then  1 else -1
-
-          textarea.height height + (diff.top  * directionY)
-          textarea.width  width  + (diff.left * directionX)
-
+          #height = textarea.outerHeight()
+          #width  = textarea.outerWidth()
+          #
+          #directionX = if editor.hasClass(classes.invert.x) then -1 else  1
+          #directionY = if editor.hasClass(classes.invert.y) then  1 else -1
+          #
+          #textarea.height height + (diff.top  * directionY)
+          #textarea.width  width  + (diff.left * directionX)
+          #
           # Only update the mousedown object if the dimensions
           # have changed, otherwise they have reached their minimum
           # values.
-          mousedown.top  = event.pageY unless textarea.outerHeight() == height
-          mousedown.left = event.pageX unless textarea.outerWidth()  == width
+          #mousedown.top  = event.pageY unless textarea.outerHeight() == height
+          #mousedown.left = event.pageX unless textarea.outerWidth()  == width
 
         else if mousedown.element == controls[0]
           editor.css({
@@ -378,5 +378,5 @@ class Annotator.Editor extends Annotator.Widget
           throttle = false
         , 1000/60)
 
-    resize.bind   'mousedown', onMousedown
+    #resize.bind   'mousedown', onMousedown
     controls.bind 'mousedown', onMousedown

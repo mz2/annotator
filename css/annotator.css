@@ -147,7 +147,7 @@
 	border: none;
 	background: none;
 	text-indent: -999em;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 /* Annotator Widget
@@ -261,9 +261,9 @@
 	padding-bottom: 12px;
 	color: rgb(60, 60, 60);
 	font-size: 13px;
-	font-style: italic;
 	line-height: 1.3;
-	border-top: none;
+	border: none;
+	outline: none;
 }
 
 .annotator-viewer .annotator-controls {
@@ -286,7 +286,7 @@
 
 .annotator-viewer .annotator-controls button,
 .annotator-viewer .annotator-controls a {
-	cursor: pointer;
+	/*cursor: pointer;*/
 	display: inline-block;
 	width: 13px;
 	height: 13px;
@@ -315,15 +315,15 @@
 }
 
 .annotator-viewer .annotator-controls .annotator-edit {
-	background-position: 0 -60px;
+	background-image: url(../img/Pencil.png);
 }
 
 .annotator-viewer .annotator-controls .annotator-delete {
-	background-position: 0 -75px;
+	background-image: url(../img/Checkmark.png);
 }
 
 .annotator-viewer .annotator-controls .annotator-link {
-	background-position: 0 -270px;
+	background-image: url(../img/Hyperlink.png);
 }
 
 /* Annotator Editor
@@ -336,7 +336,7 @@
 .annotator-editor .annotator-item label {
 	top: 0;
 	display: inline;
-	cursor: pointer;
+	/*cursor: pointer;*/
 	font-size: 12px;
 }
 
@@ -345,15 +345,15 @@
 	display: block;
 	min-width: 100%;
 	padding: 10px 8px;
+	padding-bottom: 0px;
 	border: none;
 	margin: 0;
 	color: rgb(60, 60, 60);
-	background: none;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
 	resize: none;
+	outline-width: thick;
+	outline: none;
+    border:none;
+    box-shadow:none;
 }
 
 .annotator-editor .annotator-item textarea::-webkit-scrollbar {
@@ -390,7 +390,6 @@
 
 .annotator-editor .annotator-item input:focus,
 .annotator-editor .annotator-item textarea:focus{
-	background-color: rgb(243, 243, 243);
 	outline: none;
 }
 
@@ -401,7 +400,7 @@
 	padding: 0;
 	display: inline;
 	margin: 0 4px 0 0;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 .annotator-editor .annotator-checkbox {
@@ -486,7 +485,7 @@
 	width: 15px;
 	height: 15px;
 	margin-top: -7px;
-	background-position: 0 -90px;
+	background-image: url(../img/Checkmark-Circle-Black.png);
 }
 
 .annotator-editor a:hover,
@@ -495,16 +494,11 @@
 .annotator-filter .annotator-filter-active label,
 .annotator-filter .annotator-filter-navigation button:hover {
 	outline: none;
-	border-color: rgb(67, 90, 160);
-	background-color: rgb(56, 101, 249);
-	color: rgb(255, 255, 255);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.42);
 }
 
 .annotator-editor a:hover::after,
 .annotator-editor a:focus::after {
-	margin-top: -8px;
-	background-position: 0 -105px;
+	background-image: url(../img/Checkmark-Circle-Black.png);
 }
 
 .annotator-editor a:active,
@@ -514,14 +508,13 @@
 }
 
 .annotator-editor a.annotator-save::after {
-	background-position: 0 -120px;
+	background-image: url(../img/Tickmark-Circle-Black.png);
 }
 
 .annotator-editor a.annotator-save:hover::after,
 .annotator-editor a.annotator-save:focus::after,
 .annotator-editor a.annotator-save.annotator-focus::after {
-	margin-top: -8px;
-	background-position: 0 -135px;
+	background-image: url(../img/Tickmark-Circle-Black.png);
 }
 
 .annotator-editor .annotator-widget::after {
@@ -549,13 +542,13 @@
 .annotator-invert-x .annotator-resize {
 	right: auto;
 	left: 0;
-	background-position: 0 -195px;
+	background-color:red;
 }
 
 .annotator-invert-y .annotator-resize {
 	top: auto;
 	bottom: 0;
-	background-position: 2px -165px;
+	background-color:red;
 }
 
 .annotator-invert-y.annotator-invert-x .annotator-resize {
