@@ -683,6 +683,45 @@ class Annotator extends Delegator
     # Display the editor.
     this.showEditor(annotation, position)
 
+  annotate: (position, annotationID) =>
+    @selectedRanges = this.getSelectedRanges()
+    
+    # Show a temporary highlight so the user can see what they selected
+    # Also extract the quotation and serialize the ranges
+    annot = this.createAnnotation()
+    annot.id = annotationID
+    annotation = this.setupAnnotation(annot)
+    annotation.id = annotationID
+    
+
+    $(annotation.highlights).addClass('annotator-hl-temporary')
+
+    # Subscribe to the editor events
+
+    # Make the highlights permanent if the annotation is saved
+    save = =>
+      do cleanup
+      $(annotation.highlights).removeClass('annotator-hl-temporary')
+      # Fire annotationCreated events so that plugins can react to them
+      this.publish('annotationCreated', [annotation])
+
+    # Remove the highlights if the edit is cancelled
+    cancel = =>
+      do cleanup
+      this.deleteAnnotation(annotation)
+
+    # Don't leak handlers at the end
+    cleanup = =>
+      this.unsubscribe('annotationEditorHidden', cancel)
+      this.unsubscribe('annotationEditorSubmit', save)
+
+    this.subscribe('annotationEditorHidden', cancel)
+    this.subscribe('annotationEditorSubmit', save)
+
+    # Display the editor.
+    this.showEditor(annotation, position)
+
+
   # Annotator#viewer callback function. Displays the Annotator#editor in the
   # positions of the Annotator#viewer and loads the passed annotation for
   # editing.
