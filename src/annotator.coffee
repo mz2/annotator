@@ -626,6 +626,9 @@ class Annotator extends Delegator
     #  .map( -> return $(this).data('annotation'))
     #  .toArray()
 
+    if annotations.length == 0
+      return
+
     # Now show the viewer with the wanted annotations
     this.showViewer(annotations, Util.mousePosition(event, @wrapper[0]))
 
